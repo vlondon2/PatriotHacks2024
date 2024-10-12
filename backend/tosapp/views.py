@@ -1,86 +1,50 @@
 from django.shortcuts import render
 import spacy
-import re
-class Node:
-    def __init__(self, data=None):
-        self.data = data
-        self.next = None
-        self.sublist = None  # Each node will contain another linked list
-
-class LinkedList:
-    def __init__(self):
-        self.head = None
-    
-    # Method to append data to the linked list
-    def append(self, data):
-        new_node = Node(data)
-        if self.head is None:
-            self.head = new_node
-        else:
-            last = self.head
-            while last.next:
-                last = last.next
-            last.next = new_node
-    
-    # Method to append a sublist to a node
-    def append_sublist(self, node, sublist_data):
-        node.sublist = LinkedList()
-        node.sublist.append(sublist_data)
 
 # Load the spaCy model for English
 nlp = spacy.load("en_core_web_sm")
 
 def process_string(input_string):
     """
-    Summarizes the input string using spaCy and stores the summary in a linked list structure.
+    Summarizes the input string using spaCy and returns a list of sentences.
     """
-    # Create a new linked list
-    main_list = LinkedList()
-
     # Step 1: Use spaCy to split the input text into sentences
     doc = nlp(input_string)
     sentences = list(doc.sents)
-    
-    # Step 2: Append all sentences to the linked list (each sentence in a new node)
-    for i, sentence in enumerate(sentences):
+
+    # Initialize a main list to store all sentences
+    main_list = []
+
+    # Step 2: Collect all sentences into the main list
+    for sentence in sentences:
         main_list.append(sentence.text)
-        
-        # Create a sublist inside each main node
-        current_node = get_node_by_index(main_list, i)
-        main_list.append_sublist(current_node, f"Sublist content for main node {i+1}")
 
-    # Step 3: Pass the summary to a function that evaluates it
-    evaluate_summary(main_list)
-
-
-def get_node_by_index(linked_list, index):
-    """
-    Helper function to get a node by index from the main linked list.
-    """
-    current = linked_list.head
-    count = 0
-    while current:
-        if count == index:
-            return current
-        current = current.next
-        count += 1
-    return None
+    return main_list
 
 def evaluate_summary(main_list):
     """
-    Evaluates whether the summarized information stored in the linked list is 'good' or 'bad'.
+    Evaluates whether the summarized information stored in the main list is 'good', 'bad', or 'neutral'.
+    Returns three separate lists for each category.
     """
-    current_node = main_list.head
-    while current_node:
-        summary_text = current_node.data
+    good_list = []
+    bad_list = []
+    neutral_list = []
+
+    for summary_text in main_list:
         # Example rule: if a summary contains more than 5 words, it's considered "good"
         if len(summary_text.split()) > 5:
-            print(f"Summary '{summary_text}' is GOOD.")
+            good_list.append(summary_text)
+            #print(f"Summary '{summary_text}' is GOOD.")
+        elif len(summary_text.split()) <= 5 and len(summary_text.split()) > 0:
+            bad_list.append(summary_text)
+            #print(f"Summary '{summary_text}' is BAD.")
         else:
-            print(f"Summary '{summary_text}' is BAD.")
-        
-        # Move to the next node in the main linked list
-        current_node = current_node.next
+            neutral_list.append(summary_text)
+            #print(f"Summary '{summary_text}' is NEUTRAL.")
+
+    return good_list, bad_list, neutral_list
+
+# You can also render or return these lists in a Django view if needed
 
 if __name__ == "__main__":
     test_string = """
@@ -311,7 +275,18 @@ E. Waiver. No waiver of any provision of this Agreement by us shall be deemed a 
     # Call process_string to summarize and create the linked list structure
     main_list = process_string(test_string)
 
-    # Print the structure of the linked list
-    print("Linked List Structure:")
-    print(main_list)
+    # Evaluate the main list to categorize the summaries
+    good_list, bad_list, neutral_list = evaluate_summary(main_list)
 
+    # Print the categorized lists, ensuring each entry is on a new line
+    print("\nGood List:")
+    for item in good_list:
+        print(f"- {item}")  # Prepend each item with a bullet point for clarity
+
+    print("\nBad List:")
+    for item in bad_list:
+        print(f"- {item}")  # Prepend each item with a bullet point for clarity
+
+    print("\nNeutral List:")
+    for item in neutral_list:
+        print(f"- {item}")
