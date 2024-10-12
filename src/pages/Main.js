@@ -11,7 +11,7 @@ const Main = (async) => {
     const [showModal, setShowModal] = useState(false);
 
     //       setShowModal(true);                 
-    const handleButtonClick = () => {
+    const viewTableau = () => {
         // Define what happens when the button is clicked
             //send data to a showModal (i guess this is where the tabeleau goes)
         console.log("Button clicked!");
@@ -27,6 +27,10 @@ const fetchData = async () => {
         }
         const data = await response.json();
         // Handle your data
+
+
+
+
         console.log(data);
     } catch (error) {
         console.error('There was a problem with the fetch operation:', error);
@@ -46,10 +50,10 @@ const closeModal = () => {
  
   return (
     <div style={{ padding: "20px", textAlign: "center" }}>
-    <h1>Welcome to the Chrome Extension!</h1>
-    <p>This is the home screen of your extension.</p>
-    <button onClick={handleButtonClick} style={{ padding: "10px 20px", fontSize: "16px" }}>
-        Click Me!
+    <h1>Byte-Sized Terms?? i forgor the name already</h1>
+    <p>There definitely does not exsit another app that look slike this</p>
+    <button onClick={viewTableau} className= "tableauButton" style={{ padding: "10px 20px", fontSize: "16px" }}>
+        View Details
     </button>
 </div>
 );

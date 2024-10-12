@@ -1,0 +1,26 @@
+.main {
+    padding: 20px;
+    text-align: center;
+  }
+  
+body {
+    background-color: #505050; 
+    margin: 0; 
+    font-family: 'CyberpunkFont'; 
+    color: #ff37c6
+}
+
+.tableauButton {
+    font-family: 'CyberpunkFont';
+    background-color: aliceblue;
+    color:rgb(61, 59, 214)
+}
+
+@font-face {
+    font-family: 'CyberpunkFont'; 
+    src: url('../fonts/GlitchGoblin-2O87v.ttf') format('truetype');
+    font-weight: normal; 
+    font-style: normal; 
+}
+
+
