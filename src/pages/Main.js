@@ -51,15 +51,8 @@ const closeModal = () => {
  
 return (
     <div>
-      <CyberEl88 
-        style={{
-          width: '100px',
-          height: '100px'
-        }}
-        className="cyber-icon" 
-      />
       <div style={{ padding: "20px", textAlign: "center" }}>
-        <h1>Byte-Sized Terms?? I forgot the name already</h1>
+        <h1>Byte-Sized Terms</h1>
         <p>There definitely does not exist another app that looks like this</p>
         <button onClick={viewTableau} className="tableauButton" style={{ padding: "10px 20px", fontSize: "16px" }}>
           View Details
