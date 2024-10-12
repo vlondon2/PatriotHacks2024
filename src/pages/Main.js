@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"; // Import useEffect and useS
 import { Navigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Modal from "../components/Modal";
+import { CyberEl88 } from 'react-cyber-elements'
 import "./Main.css";
 
 const Main = (async) => {
@@ -48,15 +49,25 @@ const closeModal = () => {
 };
 
  
-  return (
-    <div style={{ padding: "20px", textAlign: "center" }}>
-    <h1>Byte-Sized Terms?? i forgor the name already</h1>
-    <p>There definitely does not exsit another app that look slike this</p>
-    <button onClick={viewTableau} className= "tableauButton" style={{ padding: "10px 20px", fontSize: "16px" }}>
-        View Details
-    </button>
-</div>
-);
+return (
+    <div>
+      <CyberEl88 
+        style={{
+          width: '100px',
+          height: '100px'
+        }}
+        className="cyber-icon" 
+      />
+      <div style={{ padding: "20px", textAlign: "center" }}>
+        <h1>Byte-Sized Terms?? I forgot the name already</h1>
+        <p>There definitely does not exist another app that looks like this</p>
+        <button onClick={viewTableau} className="tableauButton" style={{ padding: "10px 20px", fontSize: "16px" }}>
+          View Details
+        </button>
+      </div>
+    </div>
+  );
+  
 }
 //      <Modal show={showModal} message={error} onClose={closeModal} />
 

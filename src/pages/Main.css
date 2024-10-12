@@ -11,7 +11,7 @@ body {
 }
 
 .tableauButton {
-    font-family: 'CyberpunkFont';
+    font-family: 'CyberpunkFont5';
     background-color: aliceblue;
     color:rgb(61, 59, 214)
 }
@@ -23,4 +23,31 @@ body {
     font-style: normal; 
 }
 
+@font-face {
+    font-family: 'CyberpunkFont2'; 
+    src: url(../fonts/Starzoom-Shavian.ttf) format('truetype');
+    font-weight: normal; 
+    font-style: normal; 
+}
 
+@font-face {
+    font-family: 'CyberpunkFont3'; 
+    src: url(../fonts/terminal-grotesque.ttf) format('truetype');
+    font-weight: normal; 
+    font-style: normal; 
+}
+
+@font-face {
+    font-family: 'CyberpunkFont4'; 
+    src: url(../fonts/SAIBA-45.ttf) format('truetype');
+    font-weight: normal; 
+    font-style: normal; 
+}
+
+
+@font-face {
+    font-family: 'CyberpunkFont5'; 
+    src: url(../fonts/Play-Bold.ttf) format('truetype');
+    font-weight: normal; 
+    font-style: normal; 
+}
