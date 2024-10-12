@@ -1,0 +1,14 @@
+{
+  "name": "Byte-Size Terms - PatriotHacks 2024",
+  "description": "Summarizes Terms of Services ",
+  "version": "1.0",
+  "manifest_version": 3,
+
+  "action": {
+    "default_popup": "display.html",
+    "default_icon": "pthackslogo.png"
+  },
+  "icons": {
+    "128": "pthackslogo.png"
+  }
+}

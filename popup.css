@@ -1,0 +1,28 @@
+body {
+  background-color: #121212; /* Dark background */
+  color: #00ffcc; /* Text color */
+  font-family: 'Arial', sans-serif; /* You can choose a more futuristic font if you like */
+  padding: 30px; /* Add some padding */
+  width: 200px; /* Set the width of the popup */
+}
+
+h1 {
+  color: #ff4081; /* Accent color for the heading */
+}
+
+button {
+  background-color: #00ccff; /* Button color */
+  color: #000000; /* Button text color */
+  border: none; /* Remove border */
+  padding: 5px 20px; /* Button padding */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+button:hover {
+  background-color: #0099cc; /* Darker button on hover */
+}
+
+ul {
+  margin-top: 20px; /* Space above the list */
+  list-style-type: none; /* Remove bullet points */
+}
