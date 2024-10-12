@@ -1,23 +1,32 @@
 from django.shortcuts import render
 import spacy
+from sumy.parsers.plaintext import PlaintextParser
+from sumy.nlp.tokenizers import Tokenizer
+from sumy.summarizers.lsa import LsaSummarizer 
+import nltk
+nltk.download('punkt')
+nltk.download('punkt_tab')
 
 # Load the spaCy model for English
 nlp = spacy.load("en_core_web_sm")
 
 def process_string(input_string):
     """
-    Summarizes the input string using spaCy and returns a list of sentences.
+    Summarizes the input string using Sumy (LSA) and returns a list of sentences.
     """
-    # Step 1: Use spaCy to split the input text into sentences
-    doc = nlp(input_string)
-    sentences = list(doc.sents)
-
-    # Initialize a main list to store all sentences
+    # Step 1: Use Sumy to create a summary
+    parser = PlaintextParser.from_string(input_string, Tokenizer("english"))
+    summarizer = LsaSummarizer()  # You can choose other summarizers (e.g., LexRank, Luhn)
+    
+    # Step 2: Generate the summary
+    summary = summarizer(parser.document, 10)  # Summarize to 5 sentences
+    
+    # Initialize a main list to store the summarized sentences
     main_list = []
 
-    # Step 2: Collect all sentences into the main list
-    for sentence in sentences:
-        main_list.append(sentence.text)
+    # Step 3: Collect summarized sentences into the main list
+    for sentence in summary:
+        main_list.append(str(sentence))  # Convert sentences to string and append
 
     return main_list
 
@@ -279,6 +288,7 @@ E. Waiver. No waiver of any provision of this Agreement by us shall be deemed a 
     good_list, bad_list, neutral_list = evaluate_summary(main_list)
 
     # Print the categorized lists, ensuring each entry is on a new line
+    print("\nPenis List:")
     print("\nGood List:")
     for item in good_list:
         print(f"- {item}")  # Prepend each item with a bullet point for clarity
