@@ -1,6 +1,7 @@
 from openai import OpenAI
+import os
 
-client = OpenAI(api_key="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")
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 from django.shortcuts import render, HttpResponse
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
