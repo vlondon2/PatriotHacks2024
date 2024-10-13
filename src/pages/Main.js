@@ -52,7 +52,7 @@ const Main = (async) => {
    
 const fetchBullets = async (docId) => {
     try {
-        const response = await fetch('http://localhost:8000/api/bullets-get/?doc_id=${docId}');
+        const response = await fetch(`http://localhost:8000/api/bullets-get/?doc_id=${docId}`);
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
@@ -69,9 +69,9 @@ const fetchBullets = async (docId) => {
 };
 
 useEffect(() => {
-    const tosText = "Your Terms of Service text here.";  // --> we can just use sample data here....?
-    //summarizeTOS(tosText); 
-}, []);
+    //const tosText = "Your Terms of Service text here.";  // --> we can just use sample data here....?
+    summarizeTOS(); 
+},);
 
   
 const closeModal = () => {
