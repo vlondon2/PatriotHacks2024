@@ -8,10 +8,12 @@ import "./Main.css";
 
 const Main = (async) => {
     const [response, setResponse] = useState(null);   //  --------> API data here
-    const [data, setData] = useState(null);     //-------> list of lists go here i think
+    const [bullets, setBullets] = useState(null);     //-------> list of lists go here i think
     const [error, setError] = useState(null); 
     const [showModal, setShowModal] = useState(false);
     const [modalMessage, setModalMessage] = useState('');
+    const [docId, setDocId] = useState('');
+
 
     //       setShowModal(true);                 
     const viewTableau = () => {
@@ -22,28 +24,54 @@ const Main = (async) => {
         console.log("Button clicked!");
     };
 
+
+    const summarizeTOS = async (content) => {
+        try {
+            const response = await fetch('http://localhost:8000/api/tos-summarize/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({content}),
+            });
+            const data = await response.json();
+            if(response.ok) {
+                setDocId(data.id);
+                fetchBullets(data.id);
+            }
+            else {
+                console.error(data.error);
+            }
+        }
+        catch (error){
+            console.log("ToS Summarization Error: ", error);
+        }
+
+    }
+
+
    
-  // Example function to fetch data from your Django backend
-const fetchData = async () => {
+const fetchBullets = async (docId) => {
     try {
-        const response = await fetch('http://localhost:8000/api/bullets-get/');
+        const response = await fetch('http://localhost:8000/api/bullets-get/?doc_id=${docId}');
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
         const data = await response.json();
         // Handle data
-
+        setBullets(data);
 
 
 
         console.log(data);
     } catch (error) {
-        console.error('There was a problem with the fetch operation:', error);
+        console.error('Fetch operation error:', error);
     }
 };
 
 useEffect(() => {
-    fetchData();
+    const tosText = "Your Terms of Service text here.";  // --> we can just use sample data here....?
+    summarizeTOS(tosText); 
 }, []);
 
   
@@ -79,7 +107,16 @@ return (
 
             <div className="api-content">
                 <h2>API Content</h2>
-                <p>Displaying data here</p>
+                {bullets && (
+                    <div>
+                        <h3>Good:</h3>
+                        <ul>{bullets.good.map((bullet, index) => <li key={index}>{bullet}</li>)}</ul>
+                        <h3>Neutral:</h3>
+                        <ul>{bullets.neutral.map((bullet, index) => <li key={index}>{bullet}</li>)}</ul>
+                        <h3>Bad:</h3>
+                        <ul>{bullets.bad.map((bullet, index) => <li key={index}>{bullet}</li>)}</ul>
+                    </div>
+                )}
             </div>
         </div>
     </div>
