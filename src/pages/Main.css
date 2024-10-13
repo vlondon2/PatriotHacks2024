@@ -1,0 +1,95 @@
+.main {
+    padding: 20px;
+    text-align: center;
+  }
+  
+
+h1, p {
+    position: relative;
+    z-index: 3;
+}
+
+
+body {
+    background: radial-gradient(circle at center, rgba(0, 0, 0, 1), rgba(111, 0, 222, 1));
+    background-color: #000000; 
+    margin: 0; 
+    font-family: 'CyberpunkFont'; 
+    color: #b300d6
+}
+
+.tableauButton {
+    font-family: 'CyberpunkFont5';
+    background-color: #FE75FE;
+    border-radius: 10px;
+    border-width: 4px;
+    border-color: rgb(79, 0, 182);
+    color: rgb(61, 59, 214);
+    margin-top: 120px;
+    z-index: 4;
+    position: relative;
+    padding: 10px 20px;
+}
+
+.tableauButton:hover {
+    background-color: #f6ff00;
+}
+
+@font-face {
+    font-family: 'CyberpunkFont'; 
+    src: url('../fonts/GlitchGoblin-2O87v.ttf') format('truetype');
+    font-weight: normal; 
+    font-style: normal; 
+}
+
+@font-face {
+    font-family: 'CyberpunkFont2'; 
+    src: url(../fonts/Starzoom-Shavian.ttf) format('truetype');
+    font-weight: normal; 
+    font-style: normal; 
+}
+
+@font-face {
+    font-family: 'CyberpunkFont3'; 
+    src: url(../fonts/terminal-grotesque.ttf) format('truetype');
+    font-weight: normal; 
+    font-style: normal; 
+}
+
+@font-face {
+    font-family: 'CyberpunkFont4'; 
+    src: url(../fonts/SAIBA-45.ttf) format('truetype');
+    font-weight: normal; 
+    font-style: normal; 
+}
+
+
+@font-face {
+    font-family: 'CyberpunkFont5'; 
+    src: url(../fonts/Play-Bold.ttf) format('truetype');
+    font-weight: normal; 
+    font-style: normal; 
+}
+
+.translucent-rectangle {
+    position: relative; 
+    width: 80%; 
+    background-color: rgba(0, 255, 159, 0.874);
+    border-radius: 10px;
+    border: 4px solid rgb(38, 0, 208);
+    z-index: 2; 
+    padding: 10px;
+    margin: 0 auto;
+}
+
+.api-content {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 10px; 
+    border: 4px solid rgb(38, 0, 208);
+    padding: 10px; 
+    background-color: rgba(255, 255, 255, 0.8); 
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    font-family: 'CyberpunkFont5';
+}

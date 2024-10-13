@@ -1,0 +1,46 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+  }
+  
+  .modal-content {
+    background: rgb(255, 255, 255);
+    padding: 20px;
+    border-radius: 5px;
+    font-family: 'CyberpunkFont5';
+    text-align: center;
+    z-index: 6;
+  }
+  
+  .close-button {
+    font-family: 'CyberpunkFont5';
+    background-color: #FE75FE;
+    border-radius: 10px;
+    border-width: 4px;
+    border-color: rgb(79, 0, 182);
+    color: rgb(61, 59, 214);
+    margin-top: 120px;
+    z-index: 4; /* Ensure it's above the translucent rectangle */
+    position: relative;
+    padding: 10px 20px;
+  }
+
+  .close-button:hover {
+    background-color: #f6ff00;
+  }
+
+
+  @font-face {
+    font-family: 'CyberpunkFont5'; 
+    src: url(../fonts/Play-Bold.ttf) format('truetype');
+    font-weight: normal; 
+    font-style: normal; 
+}
