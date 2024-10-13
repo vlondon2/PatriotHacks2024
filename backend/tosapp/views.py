@@ -27,10 +27,10 @@ def summarize_tos(request):
         temperature=0.7)
 
         # Extract response text
-        #summary_text = response.choices[0].message.content.strip()
+        summary_text = response.choices[0].message.content.strip()
 
         #this is just for testing 
-        print(f"Raw API Response: {summary_text}")
+        #print(f"Raw API Response: {summary_text}")
 
         # Process the API response and categorize into good, neutral, bad
         bullets = {
