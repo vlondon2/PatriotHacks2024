@@ -54,42 +54,44 @@ const closeModal = () => {
 
 return (
     <div>
-      {/* 3D Background */}
-      <BackgroundGrid3D />
-  
-      {/* Text and Button Section */}
-      <div style={{ padding: "20px", textAlign: "center", position: "relative", zIndex: 3 }}>
-        <h1>Byte-Sized Terms</h1>
-        <p>There definitely does not exist another app that looks like this</p>
-  
-        {/* Translucent Rectangle */}
-        <div className="translucent-rectangle"></div>
-  
-        {/* Button */}
-        <button 
-          onClick={viewTableau} 
-          className="tableauButton" 
-          style={{ 
-            padding: "10px 20px", 
-            fontSize: "16px", 
-            position: 'relative', 
-            zIndex: 4, 
-            marginTop: '20px'  // Adjusted to move the button lower if needed
-          }}
-        >
-          View Details
-        </button>
-        <Modal show={showModal} message={modalMessage} onClose={closeModal} />
+        {/* 3D Background */}
+        <BackgroundGrid3D />
 
-        <div className = "api-content">
-            <h2>API Content</h2>
-            <p>Displaying data here</p>
+        {/* Text and Button Section */}
+        <div style={{ padding: "20px", textAlign: "center", position: "relative", zIndex: 3 }}>
+            {/* Translucent Rectangle */}
+            <div className="translucent-rectangle">
+                <h1>Byte-Sized Terms</h1>
+                <p>There definitely does not exist another app that looks like this</p>
+                
+                {/* Button */}
+                <button 
+                    onClick={viewTableau} 
+                    className="tableauButton" 
+                    style={{ 
+                        padding: "10px 20px", 
+                        fontSize: "16px", 
+                        position: 'relative', 
+                        zIndex: 4, 
+                        marginTop: '20px' // Adjusted to move the button lower if needed
+                    }}
+                >
+                    View Details
+                </button>
+            </div>
+
+            {/* Modal Component */}
+            <Modal show={showModal} message={modalMessage} onClose={closeModal} />
+
+            {/* Div for API Content */}
+            <div className="api-content">
+                <h2>API Content</h2>
+                <p>Displaying data here</p>
+            </div>
         </div>
-
-      </div>
     </div>
-  );
-  
+);
+
   
 }
 //      <Modal show={showModal} message={error} onClose={closeModal} />
