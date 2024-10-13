@@ -1,4 +1,18 @@
 {
+<<<<<<< HEAD
+  "name": "Byte-Size Terms - PatriotHacks 2024",
+  "description": "Summarizes Terms of Services ",
+  "version": "1.0",
+  "manifest_version": 3,
+
+  "action": {
+    "default_popup": "display.html",
+    "default_icon": "pthackslogo.png"
+  },
+  "icons": {
+    "128": "pthackslogo.png"
+  }
+=======
     "version": "1.0.0",
     "manifest_version": 3,
     "name": "React Chrome Extension",
@@ -7,4 +21,5 @@
         "default_popup": "js/index.html",
         "default_title": "React Chrome Extension"
     }
+>>>>>>> kody-kms
 }
