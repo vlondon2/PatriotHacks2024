@@ -22,11 +22,11 @@
   
   .close-button {
     font-family: 'CyberpunkFont5';
-    background-color: #FE75FE;
+    background-color: #151015;
     border-radius: 10px;
     border-width: 4px;
     border-color: rgb(79, 0, 182);
-    color: rgb(61, 59, 214);
+    color: rgb(54, 183, 31);
     margin-top: 120px;
     z-index: 4; /* Ensure it's above the translucent rectangle */
     position: relative;

@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react"; // Import useEffect and useState
-import { Navigate } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 import Modal from "../components/Modal";
-import { CyberEl88 } from 'react-cyber-elements'
 import BackgroundGrid3D from '../components/BackgroundGrid3D'; 
 import "./Main.css";
 
@@ -27,12 +24,12 @@ const Main = (async) => {
 
     const summarizeTOS = async (content) => {
         try {
-            const response = await fetch('http://localhost:8000/api/tos-summarize/', {
+            const response = await fetch('http://localhost:8000/api/summarize_tos/', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
+                    'Content-Type': 'application/x-www-form-urlencoded',
                 },
-                body: JSON.stringify({content}),
+                body: new URLSearchParams({ text: content }),
             });
             const data = await response.json();
             if(response.ok) {
@@ -53,16 +50,13 @@ const Main = (async) => {
    
 const fetchBullets = async (docId) => {
     try {
-        const response = await fetch('http://localhost:8000/api/bullets-get/?doc_id=${docId}');
+        const response = await fetch(`http://localhost:8000/api/get_bullets/?doc_id=${docId}`);
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
         const data = await response.json();
         // Handle data
         setBullets(data);
-
-
-
         console.log(data);
     } catch (error) {
         console.error('Fetch operation error:', error);
@@ -106,7 +100,7 @@ return (
             <Modal show={showModal} message={modalMessage} onClose={closeModal} />
 
             <div className="api-content">
-                <h2>API Content</h2>
+                <h2>What you missed out on...</h2>
                 {bullets && (
                     <div>
                         <h3>Good:</h3>
