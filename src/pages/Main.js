@@ -11,11 +11,14 @@ const Main = (async) => {
     const [data, setData] = useState(null); // Define state for data     -------> list of lists go here i think
     const [error, setError] = useState(null); // Define state for error
     const [showModal, setShowModal] = useState(false);
+    const [modalMessage, setModalMessage] = useState('');
 
     //       setShowModal(true);                 
     const viewTableau = () => {
         // Define what happens when the button is clicked
             //send data to a showModal (i guess this is where the tabeleau goes)
+        setModalMessage('Graphical Data Representation!'); // Set the message to be displayed
+        setShowModal(true); // Show the modal
         console.log("Button clicked!");
     };
 
@@ -76,6 +79,13 @@ return (
         >
           View Details
         </button>
+        <Modal show={showModal} message={modalMessage} onClose={closeModal} />
+
+        <div className = "api-content">
+            <h2>API Content</h2>
+            <p>Displaying data here</p>
+        </div>
+
       </div>
     </div>
   );

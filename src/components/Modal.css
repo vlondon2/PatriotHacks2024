@@ -8,25 +8,39 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 5;
   }
   
   .modal-content {
     background: rgb(255, 255, 255);
     padding: 20px;
     border-radius: 5px;
+    font-family: 'CyberpunkFont5';
     text-align: center;
+    z-index: 6;
   }
   
   .close-button {
-    margin-bottom: 10px;
-    padding: 8px;
-    width: 220px;
-    background-color: #045f07;
-    color: white;
-    border: yellow;
-    cursor: pointer;
+    font-family: 'CyberpunkFont5';
+    background-color: #FE75FE;
+    border-radius: 10px;
+    border-width: 4px;
+    border-color: rgb(79, 0, 182);
+    color: rgb(61, 59, 214);
+    margin-top: 120px;
+    z-index: 4; /* Ensure it's above the translucent rectangle */
+    position: relative;
+    padding: 10px 20px;
   }
 
   .close-button:hover {
-    background-color: #c1b337;
+    background-color: #f6ff00;
   }
+
+
+  @font-face {
+    font-family: 'CyberpunkFont5'; 
+    src: url(../fonts/Play-Bold.ttf) format('truetype');
+    font-weight: normal; 
+    font-style: normal; 
+}
