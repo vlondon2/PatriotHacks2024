@@ -1,4 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+backend/tosapp/__pycache__
+backend/django_debug.log
+backend/backend/__pycache__
 
 # dependencies
 /node_modules
