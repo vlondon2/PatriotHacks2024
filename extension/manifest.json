@@ -1,0 +1,15 @@
+{
+    "manifest_version": 3,
+    "name": "Byte-Sized Terms",
+    "version": "1.0",
+    "description": "peepee poopoo",
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+      }
+    },
+    "permissions": [
+      "activeTab"
+    ]
+  }
+  
