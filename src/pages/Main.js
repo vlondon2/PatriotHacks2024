@@ -19,35 +19,34 @@ const Main = (async) => {
     const viewTableau = () => {
    
             //send data to a showModal (i guess this is where the tabeleau goes)
-        setModalMessage('Graphical Data Representation!'); 
+        setModalMessage('Summary!'); 
         setShowModal(true); // Show the modal
         console.log("Button clicked!");
     };
 
 
-    const summarizeTOS = async (content) => {
+    const summarizeTOS = async () => {
         try {
             const response = await fetch('http://localhost:8000/api/tos-summarize/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({content}),
+                body: JSON.stringify({ content: "paypal" }), // Hardcoded the text "Paypal"
             });
+            console.log("paypal sent paypal")
             const data = await response.json();
-            if(response.ok) {
+            if (response.ok) {
                 setDocId(data.id);
                 fetchBullets(data.id);
-            }
-            else {
+            } else {
                 console.error(data.error);
             }
-        }
-        catch (error){
+        } catch (error) {
             console.log("ToS Summarization Error: ", error);
         }
-
-    }
+    };
+    
 
 
    
@@ -71,7 +70,7 @@ const fetchBullets = async (docId) => {
 
 useEffect(() => {
     const tosText = "Your Terms of Service text here.";  // --> we can just use sample data here....?
-    summarizeTOS(tosText); 
+    //summarizeTOS(tosText); 
 }, []);
 
   
@@ -86,7 +85,7 @@ return (
         <div style={{ padding: "20px", textAlign: "center", position: "relative", zIndex: 3 }}>
             <div className="translucent-rectangle">
                 <h1>Byte-Sized Terms</h1>
-                <p>There definitely does not exist another app that looks like this</p>
+                <p>Simple Summary of your TOS</p>
                 
                 <button 
                     onClick={viewTableau} 
@@ -99,25 +98,11 @@ return (
                         marginTop: '20px'
                     }}
                 >
-                    View Details
+                    View Summary
                 </button>
             </div>
 
-            <Modal show={showModal} message={modalMessage} onClose={closeModal} />
-
-            <div className="api-content">
-                <h2>API Content</h2>
-                {bullets && (
-                    <div>
-                        <h3>Good:</h3>
-                        <ul>{bullets.good.map((bullet, index) => <li key={index}>{bullet}</li>)}</ul>
-                        <h3>Neutral:</h3>
-                        <ul>{bullets.neutral.map((bullet, index) => <li key={index}>{bullet}</li>)}</ul>
-                        <h3>Bad:</h3>
-                        <ul>{bullets.bad.map((bullet, index) => <li key={index}>{bullet}</li>)}</ul>
-                    </div>
-                )}
-            </div>
+            <Modal show={showModal} message={modalMessage} onClose={closeModal} />``
         </div>
     </div>
 );
