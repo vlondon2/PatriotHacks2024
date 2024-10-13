@@ -1,14 +1,14 @@
 /* eslint-disable no-undef */
-import React, { useEffect, useState } from "react"; 
-import Modal from "../components/Modal";
+import React, { useState } from "react";
 import BackgroundGrid3D from '../components/BackgroundGrid3D'; 
 import "./Main.css";
 
 const Main = () => {
-    const [bullets, setBullets] = useState(null); 
-    const [showModal, setShowModal] = useState(false);
-    const [modalMessage, setModalMessage] = useState('');
+    const [bullets, setBullets] = useState(null);  // Bullet points go here
+    const [error, setError] = useState(null); 
+    const [docId, setDocId] = useState('');
 
+    // Fetch the summarized ToS content
     const summarizeTOS = async (content) => {
         try {
             const response = await fetch('http://localhost:8000/api/tos-summarize/', {
@@ -16,50 +16,45 @@ const Main = () => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ text: content }), // Send TOS text to backend
+                body: JSON.stringify({ content }),
             });
             const data = await response.json();
             if (response.ok) {
-                fetchBullets(data.id); // Fetch bullets using the returned doc_id
+                setDocId(data.id);
+                fetchBullets(data.id); // Fetch the bullet points after ToS summary is generated
             } else {
-                console.error(data.error);
+                setError(data.error);
             }
         } catch (error) {
-            console.log("ToS Summarization Error: ", error);
+            setError("ToS Summarization Error: " + error.message);
         }
     };
 
+    // Fetch the bullets using docId
     const fetchBullets = async (docId) => {
         try {
-            const response = await fetch(`http://localhost:8000/api/bullets-get/?doc_id=${docId}`);
+            const response = await fetch(`http://localhost:8000/api/get_bullets/?doc_id=${docId}`);
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
             const data = await response.json();
-            setBullets(data);
-            console.log(data);
+            setBullets(data);  // Store bullet points in state
         } catch (error) {
-            console.error('Fetch operation error:', error);
+            setError('Fetch operation error: ' + error.message);
         }
     };
 
-    useEffect(() => {
-        // Listen for messages from the background script
-        const messageListener = (request) => {
-            if (request.docId) {
-                summarizeTOS(request.docId); // Summarize ToS when docId is received
-            }
-        };
-
-        chrome.runtime.onMessage.addListener(messageListener);
-
-        return () => {
-            chrome.runtime.onMessage.removeListener(messageListener); // Cleanup listener on component unmount
-        };
-    }, []);
-
-    const closeModal = () => {
-        setShowModal(false);
+    // Function to send a message to the content script to detect ToS
+    const handleDetectToS = () => {
+        chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+            chrome.tabs.sendMessage(tabs[0].id, { action: 'getToS' }, (response) => {
+                if (response && response.termsContent && response.termsContent !== 'No ToS found on this page.') {
+                    summarizeTOS(response.termsContent);  // Send ToS content to the backend
+                } else {
+                    setError('No Terms of Service detected.');
+                }
+            });
+        });
     };
 
     return (
@@ -69,20 +64,22 @@ const Main = () => {
             <div style={{ padding: "20px", textAlign: "center", position: "relative", zIndex: 3 }}>
                 <div className="translucent-rectangle">
                     <h1>Byte-Sized Terms</h1>
-                    <p>There definitely does not exist another app that looks like this</p>
+                    <p>Quick and easy summaries of your Terms of Service</p>
+
+                    {error && <p style={{ color: 'red' }}>{error}</p>}  {/* Display errors if any */}
+
                     <button 
-                        onClick={() => { setModalMessage('Graphical Data Representation!'); setShowModal(true); }} 
-                        className="tableauButton"
+                        onClick={handleDetectToS}  // Detect ToS when clicked
+                        className="tableauButton" 
+                        style={{ padding: "10px 20px", fontSize: "16px", position: 'relative', zIndex: 4, marginTop: '20px' }}
                     >
-                        View Details
+                        Detect ToS
                     </button>
                 </div>
 
-                <Modal show={showModal} message={modalMessage} onClose={closeModal} />
-
                 <div className="api-content">
                     <h2>API Content</h2>
-                    {bullets && (
+                    {bullets ? (
                         <div>
                             <h3>Good:</h3>
                             <ul>{bullets.good.map((bullet, index) => <li key={index}>{bullet}</li>)}</ul>
@@ -91,6 +88,8 @@ const Main = () => {
                             <h3>Bad:</h3>
                             <ul>{bullets.bad.map((bullet, index) => <li key={index}>{bullet}</li>)}</ul>
                         </div>
+                    ) : (
+                        <p>Loading bullet points...</p>
                     )}
                 </div>
             </div>

@@ -1,0 +1,58 @@
+DuckDuckGo Terms of Service
+DuckDuckGo (officially, Duck Duck Go, Inc.) has been an independent company since its founding in 2008.
+
+We offer an all-in-one privacy product to help protect your everyday online activities. While we started as a search engine, our apps and extensions now offer protection well beyond search, including when browsing websites, reading email, and even using other apps.
+
+These Terms of Service describe the terms and conditions (“Terms”) that apply to all of the services DuckDuckGo and its subsidiaries offer, including but not limited to our search engine, apps, and browser extensions, as well as all of their associated features (“Services”). By using our Services, you agree to these Terms.
+
+If you have any questions, please see our Contact Us page.
+
+We don't track you.
+For details about our privacy practices, please read our Privacy Policy, which applies to your use of our Services.
+
+We expect you to use our Services as authorized, or we may otherwise suspend access.
+In order to have authorization to use our Services:
+
+You must comply with these Terms and any additional service-specific terms that are presented upon use of those features.
+You must comply with the DuckDuckGo Acceptable Use Policy.
+You must respect applicable export controls. You may not use or otherwise re-export our Services except as authorized by United States law and the laws of the jurisdiction where the Services are accessed. By using our Services, you represent and warrant that you are not located in any country, or on any list, subject to applicable export control laws and regulations.
+We may suspend or terminate your access to our Services at any time if you violate these Terms.
+
+We listen to feedback and may use it to improve our Services.
+If you choose to provide us with feedback about our Services (for example, by completing a survey or sending us an email), you grant us a forever license to use your input to improve our Services without any payment or credit to you.
+
+We make use of open-source software in our Services.
+We retain all intellectual property rights in our Services, but we make the source code and data for many of our Services available under open-source licenses. To build our software, we incorporate and build upon third-party software and services.
+
+We do not give you rights to our trademarks if you use our Services.
+We have trademarks in DUCKDUCKGO, Dax the Duck, and other logos and elements of our brands. By using our Services, you are not granted any right to use our trademarks. You can learn more about our brand guidelines on our Press page.
+
+We are not responsible for content that comes from or is created by third parties.
+Many of our Services give you access to content that belongs to other people or organizations, for example, search results listing restaurants near you. We have no control over the content on third-party websites, and we cannot guarantee that the content you access through our Services is accurate or complete or that the sites you visit are unharmful.
+
+Some of the content available through our Services comes in the form of Instant Answers, which you can read more about on our Sources page. We make no representations or warranties about the accuracy or completeness of the content in our Instant Answers, as it is also derived from third-party sources.
+
+If you believe any content violates your intellectual property rights or is otherwise unlawful, you should contact the website or service hosting the content to have it removed. To report content to DuckDuckGo, please see our Report Copyright or Trademark Infringement page.
+
+Users in the EEA may contact legal@duckduckgo.com to access our internal complaints handling process, as defined in the EU Digital Services Act.
+
+We do not provide a warranty for our Services.
+To comply with the law, this section (and the following one) has to be written in more legalese with specific phrases and capitalization. Sorry about that — we're not trying to yell at you.
+
+TO THE FULLEST EXTENT PERMITTED UNDER APPLICABLE LAW, DuckDuckGo and its subsidiaries disclaim all warranties, statutory, express, or implied, including, but not limited to, implied warranties of merchantability, fitness for a particular purpose, and non-infringement of proprietary rights. You expressly agree that the use of our Services is at your sole risk. Our Services are provided on an “as is” and “as available,” “with all faults” basis and with no assurances that our Services will meet your requirements; that the Services or information made available through the Services will be uninterrupted, secure, or error-free, or that defects, if any, will be corrected; or that the Services will withstand attempts to evade security mechanisms or that there will be no cracks, bugs, disablements or other circumvention.
+
+SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OF IMPLIED WARRANTIES, SO THE ABOVE EXCLUSION MAY NOT APPLY TO YOU.
+
+We have limited liability for damages.
+IN NO EVENT WILL DUCKDUCKGO, ITS SUBSIDIARIES, OR THEIR RESPECTIVE SHAREHOLDERS, DIRECTORS, OFFICERS, EMPLOYEES, ADVERTISERS, SUPPLIERS, CONTENT PROVIDERS AND LICENSORS (AND ALL SUCCESORS AND ASSIGNS OF ANY OF THE FOREGOING) (“DUCKDUCKGO PARTIES”) BE LIABLE (JOINTLY OR SEVERALLY) TO YOU OR ANY OTHER PERSON AS A RESULT OF YOUR ACCESS OR USE OF THE SERVICES FOR INDIRECT, CONSEQUENTIAL, SPECIAL, INCIDENTAL, PUNITIVE, OR EXEMPLARY DAMAGES, INCLUDING, WITHOUT LIMITATION, LOST PROFITS, LOST SAVINGS, LOST REVENUES, OR LOST GOODWILL (COLLECTIVELY, THE “EXCLUDED DAMAGES”), REGARDLESS OF THE FORM OF THE ACTION, WHETHER THE ALLEGED LIABILITY IS BASED ON NEGLIGENCE, TORT, CONTRACT, OR OTHER THEORY OF LIABILITY, EVEN IF THE DUCKDUCKGO PARTIES HAVE BEEN ADVISED OF THE POSSIBILITY OF OR COULD HAVE FORESEEN ANY OF THE EXCLUDED DAMAGES.
+
+TO THE FULLEST EXTENT PERMITTED BY LAW, THE DUCKDUCKGO PARTIES' MAXIMUM AGGREGATE LIABILITY TO YOU FOR ANY CAUSE AND REGARDLESS OF THE FORM OF THE ACTION, WILL AT ALL TIMES BE LIMITED TO THE AMOUNT PAID BY YOU FOR USE OF THE RELEVANT SERVICES DURING THE PRIOR 12 MONTHS OR ONE HUNDRED DOLLARS ($100) IF YOU HAVE NOT HAD ANY PAYMENT OBLIGATIONS TO US.
+
+We offer these Terms under New York law.
+Any claim associated with our Services or arising out of these Terms must be filed in the state or federal courts in New York, New York, USA, and New York law will govern, regardless of conflict of laws rules.
+
+We have written these Terms to be severable.
+If any of these Terms is found to be void or unenforceable, it will not affect the other Terms.
+
+We will notify you when these Terms change.
+We will notify you of changes by posting the modified version at https://duckduckgo.com/terms. We will indicate the date it was last modified below with an update message on top if substantive changes were made. Continuing to access or use our Services after any changes constitutes your consent and agreement to any new terms.
