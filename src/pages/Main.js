@@ -8,16 +8,16 @@ import "./Main.css";
 
 const Main = (async) => {
     const [response, setResponse] = useState(null);   //  --------> API data here
-    const [data, setData] = useState(null); // Define state for data     -------> list of lists go here i think
-    const [error, setError] = useState(null); // Define state for error
+    const [data, setData] = useState(null);     //-------> list of lists go here i think
+    const [error, setError] = useState(null); 
     const [showModal, setShowModal] = useState(false);
     const [modalMessage, setModalMessage] = useState('');
 
     //       setShowModal(true);                 
     const viewTableau = () => {
-        // Define what happens when the button is clicked
+   
             //send data to a showModal (i guess this is where the tabeleau goes)
-        setModalMessage('Graphical Data Representation!'); // Set the message to be displayed
+        setModalMessage('Graphical Data Representation!'); 
         setShowModal(true); // Show the modal
         console.log("Button clicked!");
     };
@@ -26,12 +26,12 @@ const Main = (async) => {
   // Example function to fetch data from your Django backend
 const fetchData = async () => {
     try {
-        const response = await fetch('http://localhost:8000/api/your-endpoint/');
+        const response = await fetch('http://localhost:8000/api/bullets-get/');
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        // Handle your data
+        // Handle data
 
 
 
@@ -42,7 +42,6 @@ const fetchData = async () => {
     }
 };
 
-// Call fetchData when your component mounts
 useEffect(() => {
     fetchData();
 }, []);
@@ -54,17 +53,13 @@ const closeModal = () => {
 
 return (
     <div>
-        {/* 3D Background */}
         <BackgroundGrid3D />
 
-        {/* Text and Button Section */}
         <div style={{ padding: "20px", textAlign: "center", position: "relative", zIndex: 3 }}>
-            {/* Translucent Rectangle */}
             <div className="translucent-rectangle">
                 <h1>Byte-Sized Terms</h1>
                 <p>There definitely does not exist another app that looks like this</p>
                 
-                {/* Button */}
                 <button 
                     onClick={viewTableau} 
                     className="tableauButton" 
@@ -73,17 +68,15 @@ return (
                         fontSize: "16px", 
                         position: 'relative', 
                         zIndex: 4, 
-                        marginTop: '20px' // Adjusted to move the button lower if needed
+                        marginTop: '20px'
                     }}
                 >
                     View Details
                 </button>
             </div>
 
-            {/* Modal Component */}
             <Modal show={showModal} message={modalMessage} onClose={closeModal} />
 
-            {/* Div for API Content */}
             <div className="api-content">
                 <h2>API Content</h2>
                 <p>Displaying data here</p>
