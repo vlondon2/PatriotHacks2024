@@ -1,2 +1,3 @@
-backend/tosapp/__pycache_
+backend/tosapp/__pycache__
 backend/django_debug.log_
+backend/backend/__pycache__
