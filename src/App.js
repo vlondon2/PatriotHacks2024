@@ -6,7 +6,6 @@ import BackgroundGrid3D from './components/BackgroundGrid3D';
 function App() {
   return (
     <div className="App">
-      <BackgroundGrid3D />
       <Main />
     </div>
   );

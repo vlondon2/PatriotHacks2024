@@ -3,6 +3,7 @@ import { Navigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Modal from "../components/Modal";
 import { CyberEl88 } from 'react-cyber-elements'
+import BackgroundGrid3D from '../components/BackgroundGrid3D'; 
 import "./Main.css";
 
 const Main = (async) => {
@@ -48,18 +49,37 @@ const closeModal = () => {
     setShowModal(false);
 };
 
- 
 return (
     <div>
-      <div style={{ padding: "20px", textAlign: "center" }}>
+      {/* 3D Background */}
+      <BackgroundGrid3D />
+  
+      {/* Text and Button Section */}
+      <div style={{ padding: "20px", textAlign: "center", position: "relative", zIndex: 3 }}>
         <h1>Byte-Sized Terms</h1>
         <p>There definitely does not exist another app that looks like this</p>
-        <button onClick={viewTableau} className="tableauButton" style={{ padding: "10px 20px", fontSize: "16px" }}>
+  
+        {/* Translucent Rectangle */}
+        <div className="translucent-rectangle"></div>
+  
+        {/* Button */}
+        <button 
+          onClick={viewTableau} 
+          className="tableauButton" 
+          style={{ 
+            padding: "10px 20px", 
+            fontSize: "16px", 
+            position: 'relative', 
+            zIndex: 4, 
+            marginTop: '20px'  // Adjusted to move the button lower if needed
+          }}
+        >
           View Details
         </button>
       </div>
     </div>
   );
+  
   
 }
 //      <Modal show={showModal} message={error} onClose={closeModal} />

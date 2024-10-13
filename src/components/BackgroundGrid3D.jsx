@@ -31,7 +31,7 @@ const BackgroundGrid3D = () => {
       for (let y = -gridSize; y <= gridSize; y += gridStep) {
         for (let z = -gridSize; z <= gridSize; z += gridStep) {
           const geometry = new THREE.BoxGeometry(0.1, 0.1, 0.1);
-          const material = new THREE.MeshBasicMaterial({ color: 0x00ffff, wireframe: true });
+          const material = new THREE.MeshBasicMaterial({ color: 0xFF1250, wireframe: true });
           const cube = new THREE.Mesh(geometry, material);
           cube.position.set(x, y, z);
           gridGroup.add(cube);
