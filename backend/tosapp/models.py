@@ -1,3 +1,5 @@
 from django.db import models
 
-# Create your models here.
+class TosDocument(models.Model):
+    text = models.TextField()
+    bullets = models.JSONField(null=True)
