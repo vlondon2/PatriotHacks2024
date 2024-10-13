@@ -6,7 +6,7 @@ from django.shortcuts import render, HttpResponse
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from .models import TosDocument
-
+from django.http import HttpResponse
 # Set up OpenAI API key (ensure you set this up in your environment variables or Django settings)
 
 # POST
@@ -27,7 +27,10 @@ def summarize_tos(request):
         temperature=0.7)
 
         # Extract response text
-        summary_text = response.choices[0].message.content.strip()
+        #summary_text = response.choices[0].message.content.strip()
+
+        #this is just for testing 
+        print(f"Raw API Response: {summary_text}")
 
         # Process the API response and categorize into good, neutral, bad
         bullets = {
@@ -46,15 +49,15 @@ def summarize_tos(request):
                 current_section = "neutral"
             elif line.lower().startswith("bad:"):
                 current_section = "bad"
-            elif current_section:
+            elif current_section and line.strip():
                 bullets[current_section].append(line.strip())
 
         # Save ToS document and bullets to the database
         tos_doc = TosDocument.objects.create(text=text, bullets=bullets)
 
-        print(f"good:{bullets['good']}")
-        print(f"neutral:{bullets['neutral']}")
-        print(f"bad:{bullets['bad']}")
+        # print(f"good:{bullets['good']}")
+        # print(f"neutral:{bullets['neutral']}")
+        # print(f"bad:{bullets['bad']}")
 
         return JsonResponse({
             'id': tos_doc.id,
@@ -81,3 +84,6 @@ def get_bullets(request):
         'neutral': tos_doc.bullets["neutral"],
         'bad': tos_doc.bullets["bad"]
     })
+
+def home(request):
+    return HttpResponse("Welcome to the home page!")
