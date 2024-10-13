@@ -5,9 +5,12 @@
     "description": "peepee poopoo",
     "action": {
       "default_popup": "popup.html",
-      "default_icon": {
-      }
+      "default_icon":  "pthackslogo.png"
+      
     },
+    "icons": {
+    "128": "pthackslogo.png"
+  },
     "permissions": [
       "activeTab"
     ]
