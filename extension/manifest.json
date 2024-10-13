@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "Byte-Sized Terms",
     "version": "1.0",
-    "description": "peepee poopoo",
+    "description": "Automatically simplifies complicated Terms & Conditions.",
     "action": {
       "default_popup": "popup.html",
       "default_icon":  "pthackslogo.png"
@@ -12,7 +12,19 @@
     "128": "pthackslogo.png"
   },
     "permissions": [
-      "activeTab"
+      "activeTab", "tabs", "notifications", "scripting", "storage"
+    ],
+    "content_scripts": [
+      {
+        "matches": [
+          "https://www.disneyplus.com/legal/*",
+          "https://start.duckduckgo.com/terms",
+          "https://www.startpage.com/en/privacy-policy/",
+          "https://www.paypal.com/us/legalhub/useragreement-full"
+
+        ],
+        "js": ["contentScript.js"]
+      }
     ]
   }
   

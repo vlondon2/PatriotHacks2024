@@ -76,7 +76,6 @@ def get_bullets(request):
 
     return JsonResponse({
         'id': tos_doc.id,
-        'text': tos_doc.text,
         'good': tos_doc.bullets["good"],
         'neutral': tos_doc.bullets["neutral"],
         'bad': tos_doc.bullets["bad"]
