@@ -10,13 +10,28 @@ const Main = (async) => {
     const [showModal, setShowModal] = useState(false);
     const [modalMessage, setModalMessage] = useState('');
     const [docId, setDocId] = useState('');
+    const [url, setUrl] = useState('');
 
+    // In your React component or wherever needed
+    function getTabURL() {
+        return new Promise((resolve, reject) => {
+        chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+            if (tabs.length > 0) {
+            resolve(tabs[0].url);
+            } else {
+                reject('No active tab found');
+            }
+        });
+    });
+  }
+  
+  
 
     //       setShowModal(true);                 
     const viewTableau = () => {
    
             //send data to a showModal (i guess this is where the tabeleau goes)
-        setModalMessage('Graphical Data Representation!'); 
+        setModalMessage(url);                   // DEBUG: PRINTING THE URL HERE WORKS!!!!!
         setShowModal(true); // Show the modal
         console.log("Button clicked!");
     };
@@ -63,10 +78,23 @@ const fetchBullets = async (docId) => {
     }
 };
 
-useEffect(() => {
-    const tosText = "Your Terms of Service text here.";  // --> we can just use sample data here....?
-    summarizeTOS(tosText); 
-}, []);
+    // const tosText = "Your Terms of Service text here.";  // --> we can just use sample data here....?
+
+    useEffect(() => {
+        getTabURL()
+            .then((activeUrl) => {
+                console.log('Current Tab URL:', activeUrl);
+                setUrl(activeUrl); // Store the URL in state
+                // somehow we need to detect and store ToS data here into tosText
+
+                const tosText = "Your Terms of Service text here.";  // You can later pass real data or use the URL to scrape ToS from the active tab
+                summarizeTOS(tosText);  // Use the fetched ToS text here
+            })
+            .catch((error) => {
+                console.error('Error retrieving URL:', error);
+            });
+    }, []);
+
 
   
 const closeModal = () => {

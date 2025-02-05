@@ -28,8 +28,29 @@
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
-    ]
+      "react-app/jest",
+      "eslint:recommended",
+      "plugin:react/recommended"
+    ],
+    "env": {
+      "browser": true,
+      "es2021": true
+    },
+    "globals": {
+      "chrome": "readonly"
+    },
+    "parserOptions": {
+      "ecmaVersion": 12,
+      "sourceType": "module"
+    },
+    "plugins": [
+      "react"
+    ],
+    "rules": {
+      "no-undef": "off",
+       "no-unused-vars": "warn",
+       "react/prop-types": "warn"
+    }
   },
   "browserslist": {
     "production": [
